@@ -35,10 +35,10 @@ pipeline {
           echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
       }
     }
-    post {
+  }
+   post {
       always {
         echo "Pipeline executed"
       }
     }
-  }
 }
