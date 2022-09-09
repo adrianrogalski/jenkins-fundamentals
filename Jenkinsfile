@@ -31,8 +31,22 @@ pipeline {
           string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
         }
       }
-      steps {
-          echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+      parallel {
+        stage('linux-arm64') {
+          steps {
+            echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+          }
+        }
+        stage('linux-amd64') {
+          steps {
+            echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+          }
+        }
+        stage('windows-amd64') {
+          steps {
+            echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+          }
+        }
       }
     }
   }
