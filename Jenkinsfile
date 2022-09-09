@@ -28,12 +28,12 @@ pipeline {
       parallel {
         stage('linux-arm64') {
           steps {
-            echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            echo "Deploying release ${RELEASE}"
           }
         }
         stage('windows-amd64') {
           steps {
-            echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            echo "Deploying release ${RELEASE}"
           }
         }
       }
