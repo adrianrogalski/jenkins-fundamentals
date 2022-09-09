@@ -1,1 +1,1 @@
-echo "Inside the script $DEMO and secret ${API-KEY}"
+echo "Inside the script $DEMO and secret ${API_KEY}"
