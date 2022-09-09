@@ -11,11 +11,15 @@ pipeline {
       }
       steps {
         echo "Building release ${RELEASE} with log level ${LOG_LEVEL}...."
+        sh '''
+          echo "Using multiline shell step"
+          ./test.sh
+        '''
       }
     }
     stage('Test') {
       steps {
-        echo "Testing. I can see release ${RELEASE} tho not ${LOG_LEVEL}"
+        echo "Testing. I can see release ${RELEASE}..."
       }
     }
   }
