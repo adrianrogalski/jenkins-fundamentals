@@ -25,6 +25,9 @@ pipeline {
         echo "Testing. I can see release ${RELEASE}"
         script {
           print 'Writing a file'
+          if(Math.random() > 0.5) {
+            throw new Exception()
+          }
         }
         writeFile file: 'test-results.txt', text: 'passed'
 
