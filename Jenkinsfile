@@ -23,7 +23,11 @@ pipeline {
     stage('Test') {
       steps {
         echo "Testing. I can see release ${RELEASE}"
+        script {
+          print 'Writing a file'
+        }
         writeFile file: 'test-results.txt', text: 'passed'
+
       }
     }
     stage('Deploy') {
