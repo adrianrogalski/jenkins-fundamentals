@@ -11,11 +11,13 @@ pipeline {
       }
       steps {
         echo "Building release ${RELEASE} with log level ${LOG_LEVEL}...."
-        sh '''
-          echo "Using multili0ne shell step"
-          chmod +x test.sh
-          ./test.sh
-        '''
+        withCredentials([string(credentialsId: 'AN-API-KEY', variable: 'API_KEY')]) {
+          sh '''
+            echo "Using multili0ne shell step"
+            chmod +x test.sh
+            ./test.sh
+          '''
+        }
       }
     }
     stage('Test') {
